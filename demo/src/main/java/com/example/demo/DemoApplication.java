@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
+@RestController
 public class DemoApplication {
 
 	private final String DEFAULT_WELCOME = "Hello!";
@@ -14,7 +15,7 @@ public class DemoApplication {
 	}
 
 	@GetMapping("/")
-	public String main(@RequestParam String url){
+	public String main(@RequestParam(value = "name", defaultValue = "World") String url){
 		return DEFAULT_WELCOME;
 	}
 
